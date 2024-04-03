@@ -1,19 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formulario de Encuesta</title>
-  <link rel="stylesheet" href="./styles/estilos-dist.css" />
+  <meta charset="utf-8">
+  <title>particles.js</title>
+  <meta name="description" content="particles.js is a lightweight JavaScript library for creating particles.">
+  <meta name="author" content="Vincent Garreau" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" media="screen" href="./css/style.css">
+  <link rel="stylesheet" media="screen" href="./css/style2.css">
 </head>
 
-<form action="https://api.sheetmonkey.io/form/m3STNgjccwha9TDz3iwJhW" method="post">
+<form style="padding: 0;margin: 0;" action="https://api.sheetmonkey.io/form/m3STNgjccwha9TDz3iwJhW" method="post">
 
 <body>
-  <div class="container">
-    <header class="header">
+
+<!-- particles.js container -->
+<div id="particles-js" style="height: 150%;">
+
+
+  
+  <div class="ctn-p">
+    <header class="">
       <h1 id="title" class="text-center">Formulario De Peliculas</h1>
     </header>
     <form id="form-group">
@@ -56,7 +63,44 @@
       </div>
     </form>
   </div>
-</body>
 
-  <script> </script>
+</div>
+
+
+
+<!-- scripts -->
+<script src="./particles.js"></script>
+<script src="./js/app.js"></script>
+
+
+
+<!-- stats.js -->
+<script>
+  var count_particles, stats, update;
+  stats = new Stats;
+  stats.setMode(0);
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.left = '0px';
+  stats.domElement.style.top = '0px';
+  document.body.appendChild(stats.domElement);
+  count_particles = document.querySelector('.js-count-particles');
+  update = function() {
+    stats.begin();
+    stats.end();
+    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
+      count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
+    }
+    requestAnimationFrame(update);
+  };
+  requestAnimationFrame(update);
+</script>
+
+</body>
 </html>
+
+
+
+
+
+
+
